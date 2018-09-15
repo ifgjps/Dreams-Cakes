@@ -4,11 +4,11 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 const port = 3000;
 const pg = require('pg');
-const connectionString = process.env.DATABASE_URL || 'postgres://postgres:ifg@localhost:5432/Dreams Cakes';
+const connectionString = process.env.DATABASE_URL || 'postgres://postgres:ifg@localhost:5432/dreamscakes';
 const client = new pg.Client(connectionString);
 client.connect();
 
-router.get('/api/v1/criar', (req, res, next) => {
+router.post('/api/v1/criar', (req, res, next) => {
 
  const results = [];
   // Grab data from http request
@@ -22,8 +22,8 @@ router.get('/api/v1/criar', (req, res, next) => {
       return res.status(500).json({success: false, data: err});
     }
     // SQL Query > Insert Data
-    client.query('INSERT INTO itens(nome, sobrenome) values($1, $2)',
-    ['John Pereira', 'Souza']);
+    client.query('INSERT INTO itens(quantidadeproduto, endereço) values($1, $2)',
+    [req.body.quantidadeproduto, req.body.endereço]);
     // SQL Query > Select Data
     const query = client.query('SELECT * FROM itens ORDER BY id ASC');
     // Stream results back one row at a time
@@ -38,11 +38,12 @@ router.get('/api/v1/criar', (req, res, next) => {
   });
 });
 
+router.delete('/api/v1/deletar/:todo_id', (req, res, next) => {
 
-router.get('/api/v1/delete/:todo_id', (req, res, next) => {
   const results = [];
   // Grab data from the URL parameters
   const id = req.params.todo_id;
+  console.log(id);
   // Get a Postgres client from the connection pool
   pg.connect(connectionString, (err, client, done) => {
     // Handle connection errors
@@ -65,17 +66,12 @@ router.get('/api/v1/delete/:todo_id', (req, res, next) => {
       return res.json(results);
     });
   });
-})
+});
 
-
-
-
-router.get('/api/v1/update/:todo_id/:nome/:sobrenome', (req, res, next) => {
+router.put('/api/v1/atualizar/:todo_id', (req, res, next) => {
   const results = [];
   // Grab data from the URL parameters
   const id = req.params.todo_id;
-  const nome = req.params.nome;
-  const sobrenome = req.params.sobrenome;
   // Grab data from http request
   const data = {text: req.body.text, complete: req.body.complete};
   // Get a Postgres client from the connection pool
@@ -87,8 +83,8 @@ router.get('/api/v1/update/:todo_id/:nome/:sobrenome', (req, res, next) => {
       return res.status(500).json({success: false, data: err});
     }
     // SQL Query > Update Data
-    client.query('UPDATE itens SET nome=($1), sobrenome=($2) WHERE id=($3)',
-    [nome,sobrenome, id]);
+    client.query('UPDATE itens SET quantidadeproduto=($1), endereço=($2) WHERE id=($3)',
+    [req.body.quantidadeproduto, req.body.endereço, id]);
     // SQL Query > Select Data
     const query = client.query("SELECT * FROM itens ORDER BY id ASC");
     // Stream results back one row at a time
@@ -104,13 +100,11 @@ router.get('/api/v1/update/:todo_id/:nome/:sobrenome', (req, res, next) => {
 });
 
 
-
-
-router.get('/api/v1/pesquisa/:pesquisa', (req, res, next) => {
+router.get('/api/v1/pesquisar/:pesquisa', (req, res, next) => {
   const results = [];
   // Grab data from the URL parameters
-  const pesquisa = req.params.pesquisa;
-    // Grab data from http request
+  const valor = req.params.pesquisa;
+  // Grab data from http request
   const data = {text: req.body.text, complete: req.body.complete};
   // Get a Postgres client from the connection pool
   pg.connect(connectionString, (err, client, done) => {
@@ -121,10 +115,8 @@ router.get('/api/v1/pesquisa/:pesquisa', (req, res, next) => {
       return res.status(500).json({success: false, data: err});
     }
     // SQL Query > Update Data
-	
-   console.log(err);
-    const query = client.query('SELECT * FROM itens WHERE id=($1)', [pesquisa] );
-    // Stream results back one row at a time
+    const query = client.query('SELECT * from itens where id = ($1)',
+    [valor]);
     query.on('row', (row) => {
       results.push(row);
     });
@@ -136,17 +128,56 @@ router.get('/api/v1/pesquisa/:pesquisa', (req, res, next) => {
   });
 });
 
-
-
-
-
-
-
+router.get('/api/v1/pesquisar', (req, res, next) => {
+  const results = [];
+  // Grab data from the URL parameters
+  const valor = req.params.pesquisa;
+  // Grab data from http request
+  const data = {text: req.body.text, complete: req.body.complete};
+  // Get a Postgres client from the connection pool
+  pg.connect(connectionString, (err, client, done) => {
+    // Handle connection errors
+    if(err) {
+      done();
+      console.log(err);
+      return res.status(500).json({success: false, data: err});
+    }
+    // SQL Query > Update Data
+    const query = client.query('SELECT * from itens');
+    query.on('row', (row) => {
+      results.push(row);
+    });
+    // After all data is returned, close connection and return results
+    query.on('end', function() {
+      done();
+      return res.json(results);
+    });
+  });
+});
 
 //conf o body parser para pegar post mais tarde
+app.use(function (req, res, next) {
+
+    // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Credentials', true);
+
+    // Pass to next layer of middleware
+    next();
+});
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use('/', router);
+//Modificaçoes aula 19/05
 
 
 //inicia o servidor
