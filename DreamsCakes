@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title> DREAMS CAKES</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ 
+
+<!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+
+  <style>
+  
+   <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>Bootstrap Theme Dreams Cakes Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+    crossorigin="anonymous">
+
+
+</head>
+  
+  
+  body {
+      font: 400 15px Lato, sans-serif;
+      line-height: 1.8;
+      color: #818181;
+  }
+  h2 {
+      font-size: 24px;
+      text-transform: uppercase;
+      color: #303030;
+      font-weight: 600;
+      margin-bottom: 30px;
+  }
+  h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      color: #303030;
+      font-weight: 400;
+      margin-bottom: 30px;
+  }  
+  .jumbotron {
+      background-color: #395096;
+      color: #fff;
+      padding: 100px 25px;
+      font-family: Montserrat, sans-serif;
+  }
+  .container-fluid {
+      padding: 60px 50px;
+  }
+  .bg-grey {
+      background-color: #f6f6f6;
+  }
+  .logo-small {
+      color: #395096;
+      font-size: 50px;
+  }
+  .logo {
+      color: #395096;
+      font-size: 200px;
+  }
+  .thumbnail {
+      padding: 0 0 15px 0;
+      border: none;
+      border-radius: 0;
+  }
+  .thumbnail img {
+      width: 100%;
+      height: 100%;
+      margin-bottom: 10px;
+  }
+  .carousel-control.right, .carousel-control.left {
+      background-image: none;
+      color: #395096;
+  }
+  .carousel-indicators li {
+      border-color: #395096;
+  }
+  .carousel-indicators li.active {
+      background-color: #395096;
+  }
+  .item h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      font-weight: 400;
+      font-style: italic;
+      margin: 70px 0;
+  }
+  .item span {
+      font-style: normal;
+  }
+  .panel {
+      border: 1px solid #395096; 
+      border-radius:0 !important;
+      transition: box-shadow 0.5s;
+  }
+  .panel:hover {
+      box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+  }
+  .panel-footer .btn:hover {
+      border: 1px solid #395096;
+      background-color: #fff !important;
+      color: #395096;
+  }
+  .panel-heading {
+      color: #fff !important;
+      background-color: #395096 !important;
+      padding: 25px;
+      border-bottom: 1px solid transparent;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+  }
+  .panel-footer {
+      background-color: white !important;
+  }
+  .panel-footer h3 {
+      font-size: 32px;
+  }
+  .panel-footer h4 {
+      color: #aaa;
+      font-size: 14px;
+  }
+  .panel-footer .btn {
+      margin: 15px 0;
+      background-color: #395096;
+      color: #fff;
+  }
+  .navbar {
+      margin-bottom: 0;
+      background-color: #395096;
+      z-index: 9999;
+      border: 0;
+      font-size: 12px !important;
+      line-height: 1.42857143 !important;
+      letter-spacing: 4px;
+      border-radius: 0;
+      font-family: Montserrat, sans-serif;
+  }
+  .navbar li a, .navbar .navbar-brand {
+      color: #fff !important;
+  }
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+      color: #f4511e !important;
+      background-color: #fff !important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+      color: #fff !important;
+  }
+  footer .glyphicon {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #395096;
+  }
+  .slideanim {visibility:hidden;}
+  .slide {
+      animation-name: slide;
+      -webkit-animation-name: slide;
+      animation-duration: 1s;
+      -webkit-animation-duration: 1s;
+      visibility: visible;
+  }
+  @keyframes slide {
+    0% {
+      opacity: 0;
+      transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 35px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .logo {
+        font-size: 150px;
+    }
+  }
+  </style>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#SOBRE">SOBRE</a></li>
+		<li><a href="#services">AMOSTRAS</a></li>
+		<li><a href="#COMENTARIOS">COMENTARIOS</a></li>
+        <li><a href="#pricing">SABORES</a></li>
+		<li><a href="#ENCOMENDA">ENCOMENDAS</a></li>
+        <li><a href="#contact">CONTATO</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="jumbotron text-center">
+  <h1> DREAMS CAKES</h1> 
+  <p>Confeccionamos bolos de aniversários, casamento,  tortas, sobremesas e doces com diversos sabores e para todo tipo de eventos.
+	</p> 
+ </div>
+
+<!-- Container (SOBRE Section) -->
+<div id="SOBRE" class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>SOBRE A DREAMS CAKES</h2><br>
+      <h4>A Confeitaria da Jays surgiu atraves do sonho de confeitar bolos com a essência do verdadeiro bolo dos sonhos. 
+		A Confeitaria atende a mais de 2 anos com a preocupação e zelo por seus clientes e consumidores buscando atender todas as normas e padrões necessários para oferecer produtos com qualidade e todo cuidado de higiene. Confeccionamos bolos e doces para comemorações de aniversário de todas as idades, debutantes, noivados e casamentos, eventos corporativos e clientes que estejam em busca de um doce especial. O nosso diferencial está simplicidade, no carinho e no cuidado que temos com nosso cardápio, são eles que tornam os nossos bolos agradáveis ao paladar e fazem da Dreams Cakes um sucesso.</h4><br>   
+		</div>
+		<div class="col-sm-4">
+	 <img src="imagem/imagem11.jpg" alt="imagem11" width="300" height="350">
+     </div>
+  </div>
+</div>
+
+<div class="container-fluid bg-grey">
+  <div class="row">
+    <div class="col-sm-4">
+	<img src="imagem/imagem4.jpg" alt="imagem4" width="300" height="350">
+    </div>
+    <div class="col-sm-8">
+      <h2>NOSSOS VALORES</h2><br>
+      <h4><strong>MISSÃO:</strong> Oferecer as pessoas produtos de elevado padrão de qualidade, antecipando às necessidades do mercado, e atendendo expectativas dos consumidores.</h4><br>
+      <p><strong>VISÃO:</strong> Ser uma Empresa reconhecida por seus clientes e consumidores pela qualidade e inovação de seus produtos de maneira sustentável, ética e perene.</p>
+      <p><strong>VALORES:</strong>Os clientes e consumidores são a razão da nossa existência;
+		Honestidade, ética e justiça direcionam todas as nossas ações;
+		Abertura e estímulo às novas idéias, empreendedorismo e busca de soluções;
+		Promover o desenvolvimento humano, dentro e fora da empresa;
+		Promover um crescimento sustentável, com respeito ao meio ambiente.</p>
+	</div>
+  </div>
+</div>
+
+<!-- Container (Services Section) -->
+<div id="services" class="container-fluid text-center bg-grey">
+  <h2>AMOSTRAS</h2>
+    <div class="row text-center">
+    <div class="col-sm-3">
+      <div class="thumbnail">
+        <img src="imagem/imagem1.jpg" alt="imagem1">
+        <p><strong>Bolos</strong></p>
+        <p>Cha de bebê</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="imagem/imagem2.jpg" alt="imagem2">
+        <p><strong>Bolos</strong></p>
+        <p>Aniversários</p>
+      </div>
+    </div>
+    <div class="col-sm-5">
+      <div class="thumbnail">
+        <img src="imagem/imagem3.jpg" alt="imagem3">
+        <p><strong>Doces</strong></p>
+        <p>Diversos</p>
+      </div>
+    </div>
+</div>
+
+
+<!-- Container (COMENTARIOS Section) -->
+<div id="COMENTARIOS" class="container-fluid text-center bg-grey">
+  <h2>O QUE NOSSOS CLIENTES DIZEM</h2>
+  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <h4>"Gostaria de deixar aqui registrada, a minha satisfação com os cupcakes, Lindo e Delicioso super recomendo!"<br><span>Nayana Pereira Braga
+</span></h4>
+      </div>
+      <div class="item">
+        <h4>"Estava uma deliciaaaaa, Obrigada e parabéns pelo excelente trabalho!!"<br><span>Rayene Leles</span></h4>
+      </div>
+      <div class="item">
+        <h4>"Não gostamos, nós amamos!!! Eles são deliciosos! Todos elogiaram!"<br><span>Janaina Braga</span></h4>
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+<!-- Container (Pricing Section) -->
+<div id="pricing" class="container-fluid">
+  <div class="text-center">
+    <h2>Sabores</h2>
+  </div>
+  <div class="row slideanim">
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>Bolos</h1>
+        </div>
+        <div class="panel-body">
+          <p>Ameixa c/ cocadinha_______R$40,00</p>
+		  <p>Banana com passas diet_____R$20,00</p>
+		  <p>Baunilha__________________R$15,00</p>
+		  <p>Bolo de Banana com Canela__R$15,00</p>
+		  <p>Brigadeiro e ou Prestígio_____R$40,00</p>
+		  <p>Cenoura___________________R$15,00</p>
+		  <p>Cobertura de chocolate_______R$16,00</p>
+		  <p>Coco______________________R$15,00</p>
+		  <p>Formigueiro________________R$18,00</p>
+		  <p>Fubá______________________R$14,00</p>
+		  <p>Limão_____________________R$13,00</p>
+		  <p>Maracujá__________________R$15,00</p>
+		  <p>Mesclado__________________R$15,00</p>
+		  <p>Mandioca__________________R$15,00</p>
+		  <p>Milho_____________________R$15,00</p>			
+		  
+        </div>
+      </div>      
+    </div>     
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>Doces</h1>
+        </div>
+        <div class="panel-body">
+          <p>Beijinho de Cristal____________________R$1,50</p>
+		  <p>Bombom crocante_____________________R$1,50</p>
+		  <p>Bombom de coco______________________R$1,50</p>
+		  <p>Bombom Ganache_____________________R$1,50</p>
+		  <p>Brigadeiro Gourmet de Amêndoas________R$1,30</p>
+		  <p>Brigadeiro Gourmet de Ovomaltine_______R$1,30</p>
+		  <p>Brigadeiro Gourmet Tradicional__________R$1,20</p>
+		  <p>Brigadeiro recheado de coco____________R$1,50</p>
+		  <p>Potinho de Brigadeiro_________________R$2,00</p>
+		  <p>Potinho Prestígio____________________R$2,00</p>
+		  <p>Trufa Tradicional____________________R$1,40</p>
+		  <p>Trufado de Cereja____________________R$1,40</p>
+		  <p>Trufado de Coco_____________________R$1,40</p>
+		  <p>Trufado de Limão com coração________R$1,40</p>
+		  <p>Trufado de Maracujá_________________R$1,40</p>
+        </div>
+      </div>      
+    </div>       
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>Cupcake</h1>
+        </div>
+        <div class="panel-body">
+          <p>Cupcake de Nutella__________________R$4,00</p>
+          <p>Cupcake de Mousse de Morango________R$4,00</p>
+          <p>Cupcake de Mousse de Limão__________R$4,00</p>
+          <p>Cupcake de Doce de Leite____________R$4,00</p>
+          <p>Cupcake Red Velvet__________________R$4,00</p>
+          <p>Cupcake de Cenoura com Brigadeiro_____R$4,00</p>
+          <p>Cupcake Duo Brigadeiro_______________R$4,00</p>
+          <p>Cupcake de Brigadeiro Branco__________R$4,00</p>
+          <p>Cupcake Mousse de Chocolate_________R$4,00</p>
+          <p>Cupcake de Leite Ninho com Nutella_____R$4,00</p>
+          <p>Cupcake de Beijinho__________________R$4,00</p>
+          <p>Cupcake de Paçoca___________________R$4,00</p>
+          <p>Cupcake de Morango e Brigadeiro________R$4,00</p>
+          <p>Cupcake Oreo________________________R$4,00</p>
+          <p>Cupcake mousse de maracuja__________R$4,00</p>
+
+        </div>
+      </div>      
+    </div>    
+  </div>
+</div>
+
+<!-- Container (ENCOMENDA Section) -->
+<div id="ENCOMENDA" class="container-fluid text-center bg-grey">
+
+<h2 class="text-center">FAÇA SUA ENCOMENDA</h2>
+
+
+
+  <!-- <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">@</span>
+        <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+      </div>
+      
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2">
+        <span class="input-group-addon" id="basic-addon2">@example.com</span>
+      </div>
+      
+      <div class="input-group">
+        <span class="input-group-addon">$</span>
+        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+        <span class="input-group-addon">.00</span>
+      </div>
+      
+      <label for="basic-url">Your vanity URL</label>
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon3">https://example.com/users/</span>
+        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+      </div> -->
+
+ <div id="app">
+    <p>{{message}}</p>
+    <!-- <p>{{v1}} + {{v2}}</p> -->
+
+    <div class="input-group">
+      <label for="quantidadeproduto">Quantidade e Produto</label>
+      <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" v-model="quantidadeproduto">
+    </div>
+    <div class="input-group">
+      <label for="endereço">Endereço</label>
+      <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" v-model="endereço">
+    </div>
+    <br>
+    <button type="button" class="btn btn-primary" @click="enviar">Enviar</button>
+    <br>
+    <br>
+
+    <table class="table table-bordered">
+      <tr>
+        <th>Quantidade e Produto</th>
+        <th>Endereço</th>
+        <th>Opções</th>
+      </tr>
+      <tr v-for="(item, index) in someData.body">
+        <td v-if="exibir != index">{{ item.quantidadeproduto }}</td>
+        <td v-if="exibir === index"><input type="text" class="form-control" v-model="item.quantidadeproduto"></td>
+        <td v-if="exibir != index">{{item.endereço}}</td>
+        <td v-if="exibir === index"><input type="text" class="form-control" v-model="item.endereço">
+        </td>
+        <td>
+            <button type="button" class="btn btn-default" @click="editar(index)">Editar</button>
+            <button type="button" class="btn btn-default" @click="excluir(item.id)">Excluir</button>
+            <button type="button" class="btn btn-default" @click="atualizar(item.id, item)">Atualizar</button></td>
+
+          </tr>
+      </table>
+      <!-- <li v-for="item in someData.body">
+        {{ item.nome }} {{item.sobrenome}}
+      </li>
+    </ul> -->
+
+    <!-- Resultado: {{resultado}} -->
+
+
+  </div>
+</div>
+
+<div id="contact" class="container-fluid bg-grey">
+  <h2 class="text-center">CONTATO</h2>
+  <div class="row">
+    <div class="col-sm-5">
+      <p>Entre em contato conosco.</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> LUZIÂNIA, GO</p>
+      <p><span class="glyphicon glyphicon-phone"></span> +61 36213846</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> jayspereira@gmail.com</p>
+    </div>
+	 <div class="col-sm-4">
+	 <img src="imagem/imagem12.jpg" alt="imagem12" width="200" height="150">
+     
+    </div>
+   </div>
+</div>
+ 
+
+
+
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      message: '',
+      v1: '',
+      v2: '',
+      quantidadeproduto: '',
+      endereço: '',
+      someData: '',
+      exibir: null,
+      //resultado: ''
+    },
+    created: function () {
+     this.listar();
+    },
+    methods: {
+      enviar: function () {
+        this.$http.post('http://localhost:3000/api/v1/criar', { quantidadeproduto: this.quantidadeproduto, endereço: this.endereço }).then(response =>{
+          this.listar();
+          this.quantidadeproduto = '';
+          this.endereço = '';
+        });
+      },
+      listar: function(){
+        this.$http.get('http://localhost:3000/api/v1/pesquisar').then(response => {
+        console.log(response)
+
+        // get body data
+        this.someData = response;
+
+      }, response => {
+        // error callback
+      });
+    },
+
+      excluir: function(id){
+        this.$http.delete('http://localhost:3000/api/v1/deletar/'+id).then(response => {
+        console.log(response)
+
+        // get body data
+        this.someData = response;
+
+      }, response => {
+        // error callback
+      });
+      },
+
+      atualizar: function(id, body){
+       
+        this.$http.put('http://localhost:3000/api/v1/atualizar/'+id, body).then(response => {
+        
+
+        // get body data
+        this.someData = response;
+        this.editar(null);
+
+      }, response => {
+        // error callback
+      });
+       },
+       editar: function(value){
+         this.exibir = value;
+       }
+      }
+
+      //calcular: function(v1, v2){
+      //this.resultado = parseInt(v1) + parseInt(v2)
+      //}
+    }
+  ,)
+</script>
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+  
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+</script>
+ <footer class="container-fluid text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+  <p>Dreams Cakes <a href="https://www.w3schools.com" title="Visit w3schools"> http://dreamscakes-com-br.umbler.net</a></p>
+</footer>
+
+
+</body>
+
+</html>
